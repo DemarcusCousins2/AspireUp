@@ -23,26 +23,35 @@ function Signup() {
   const navigate = useNavigate();
   let passwordValid = false;
 
+  const switchToLogin = () => {
+    navigate("/login");
+  };
+
   async function sendData() {
     const response = await fetch(emailAPI, {
       method: "POST",
       body: JSON.stringify({
         headers: {
-          "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Credentials": "true",
         },
-        email: email,
+        email: email.toLowerCase(),
         password: password,
-        fName: fName,
-        lName: lName,
+        fName: fName.toLowerCase(),
+        lName: lName.toLowerCase(),
         grade: grade,
         birthday: birthday,
-        relationship: relationship,
       }),
     });
 
     const data = await response.json();
+    console.log(data["message"]);
+    if (data["message"] === "Account already active!") {
+      alert("Your account is already active, please login!");
+      return false;
+    }
+    return true;
   }
   const checkFields = async () => {
     const regex =
@@ -99,7 +108,10 @@ function Signup() {
       passwordValid &&
       !relationshipValidation
     ) {
-      await sendData();
+      const sentData = await sendData();
+      if (!sentData) {
+        return;
+      }
       navigate("/email");
     } else {
       console.log("Error");
@@ -307,7 +319,9 @@ function Signup() {
           Submit
         </button>
         <nav>
-          <a href="signup.html">Already have an account?</a>
+          <a onClick={switchToLogin} href="#">
+            Already have an account?
+          </a>
         </nav>
       </form>
     </>

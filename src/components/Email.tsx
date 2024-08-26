@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Email() {
+  const navigate = useNavigate();
   const verificationAPI =
     "https://7am7ptsimk.execute-api.us-west-2.amazonaws.com/prod/verifier";
   const verifyCode = async () => {
@@ -18,7 +20,9 @@ function Email() {
     });
 
     const data = await response.json();
-    console.log(data);
+    if (data["message"] === true) {
+      navigate("/home");
+    }
   };
 
   const [code, setCode] = useState("");
