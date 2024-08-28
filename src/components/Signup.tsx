@@ -42,6 +42,7 @@ function Signup() {
         lName: lName.toLowerCase(),
         grade: grade,
         birthday: birthday,
+        relationship: relationship,
       }),
     });
 
@@ -112,6 +113,7 @@ function Signup() {
       if (!sentData) {
         return;
       }
+      sessionStorage.setItem("email", email);
       navigate("/email");
     } else {
       console.log("Error");
