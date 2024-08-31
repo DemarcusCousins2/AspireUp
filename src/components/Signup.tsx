@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/Login.css";
+import "../css/Login.module.css";
 import PasswordChecklist from "react-password-checklist";
 import { useNavigate } from "react-router-dom";
 
