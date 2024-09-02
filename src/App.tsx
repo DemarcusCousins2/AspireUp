@@ -2,6 +2,7 @@ import Signup from "./components/Signup";
 import Email from "./components/Email";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import "./css/Style.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 function App() {

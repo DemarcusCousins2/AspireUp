@@ -1,5 +1,6 @@
-import "../css/Login.css";
+// import styles from "../css/Login.module.css";
 import { useState } from "react";
+// import styles from "../css/Signup.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function Login() {
@@ -27,7 +28,7 @@ function Login() {
     if (data["message"] == true) {
       navigate("/home");
     } else {
-      alert("Invalid email or password");   
+      alert("Invalid email or password");
     }
   };
   return (

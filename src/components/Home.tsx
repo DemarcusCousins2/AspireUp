@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/Home.module.css";
-import PasswordChecklist from "react-password-checklist";
-
+import styles from "../css/Home.module.css";
 // const navigate = useNavigate();
 
 // const handleLogoutClick = () => {
@@ -14,6 +12,7 @@ function Home() {
       <div id="container">
         <h1>Welcome to AspireUp!</h1>
       </div>
+      <p>Hello!</p>
       {/* <button onClick={handleLogoutClick}>Sign out</button> */}
     </>
   );

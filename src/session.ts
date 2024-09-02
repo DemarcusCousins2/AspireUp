@@ -11,10 +11,7 @@ export async function createSession(email: string) {
             email: email!,
         }),
     });
-    console.log("made it here");
     const data = await response.json();
-    console.log("second check")
     const sessionID = data["message"];
-    console.log(sessionID);
     return sessionID;
 }

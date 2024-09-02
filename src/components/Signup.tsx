@@ -1,5 +1,6 @@
+import React from "react";
 import { useState } from "react";
-import "../css/Login.module.css";
+import styles from "../css/Signup.module.css";
 import PasswordChecklist from "react-password-checklist";
 import { useNavigate } from "react-router-dom";
 
@@ -47,7 +48,6 @@ function Signup() {
     });
 
     const data = await response.json();
-    console.log(data["message"]);
     if (data["message"] === "Account already active!") {
       alert("Your account is already active, please login!");
       return false;
@@ -125,7 +125,7 @@ function Signup() {
         <h1>Sign Up</h1>
       </header>
       <form>
-        <div className="form-group">
+        <div className={`${styles["form-group"]}`}>
           <label htmlFor="firstName">First name:</label>
           <input
             type="text"
@@ -136,14 +136,16 @@ function Signup() {
           />
           <p
             className={
-              fNameErrorMessage ? "error-message visible" : "error-message"
+              fNameErrorMessage
+                ? `${styles["error-message"]} ${styles.visible}`
+                : `${styles["error-message"]} ${styles.hidden}`
             }
           >
             Field cannot be empty
           </p>
         </div>
 
-        <div className="form-group">
+        <div className={`${styles["form-group"]}`}>
           <label htmlFor="lastName">Last name:</label>
           <input
             type="text"
@@ -154,14 +156,16 @@ function Signup() {
           />
           <p
             className={
-              lNameErrorMessage ? "error-message visible" : "error-message"
+              lNameErrorMessage
+                ? `${styles["error-message"]} ${styles.visible}`
+                : `${styles["error-message"]} ${styles.hidden}`
             }
           >
             Field cannot be empty
           </p>
         </div>
 
-        <div className="form-group">
+        <div className={`${styles["form-group"]}`}>
           <label>Grade:</label>
           <br />
           <input
@@ -202,14 +206,16 @@ function Signup() {
           <br />
           <p
             className={
-              gradeErrorMessage ? "error-message visible" : "error-message"
+              gradeErrorMessage
+                ? `${styles["error-message"]} ${styles.visible}`
+                : `${styles["error-message"]} ${styles.hidden}`
             }
           >
             Field cannot be empty
           </p>
         </div>
 
-        <div className="form-group">
+        <div className={`${styles["form-group"]}`}>
           <label htmlFor="birthdate">Birthday</label>
           <input
             type="date"
@@ -220,14 +226,16 @@ function Signup() {
           />
           <p
             className={
-              birthdayErrorMessage ? "error-message visible" : "error-message"
+              birthdayErrorMessage
+                ? `${styles["error-message"]} ${styles.visible}`
+                : `${styles["error-message"]} ${styles.hidden}`
             }
           >
             Field cannot be empty
           </p>
         </div>
 
-        <div className="form-group">
+        <div className={`${styles["form-group"]}`}>
           <label>Are you a parent or a child?</label>
           <br />
           <input
@@ -251,15 +259,15 @@ function Signup() {
           <p
             className={
               relationshipErrorMessage
-                ? "error-message visible"
-                : "error-message"
+                ? `${styles["error-message"]} ${styles.visible}`
+                : `${styles["error-message"]} ${styles.hidden}`
             }
           >
             Field cannot be empty
           </p>
         </div>
 
-        <div className="form-group">
+        <div className={`${styles["form-group"]}`}>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -270,14 +278,16 @@ function Signup() {
           />
           <p
             className={
-              emailErrorMessage ? "error-message visible" : "error-message"
+              emailErrorMessage
+                ? `${styles["error-message"]} ${styles.visible}`
+                : `${styles["error-message"]}  ${styles.hidden}`
             }
           >
             Enter a valid email
           </p>
         </div>
 
-        <div className="form-group">
+        <div className={`${styles["form-group"]}`}>
           <label htmlFor="password">Password:</label>
           <input
             type="password"
